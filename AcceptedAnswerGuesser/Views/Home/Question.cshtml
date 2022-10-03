@@ -1,17 +1,36 @@
-﻿@model AcceptedAnswerGuesser.Models.AnswerModel.Answers
+﻿@model AcceptedAnswerGuesser.Models.GuesserModel
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <p>Which of the following answers is the accepted one? </p>
+     <h1 class="display-4">The Selected Question:</h1>
+    <p>(Answers below)</p>
 </div>
+<br />
+<br />
+<br />
 
-@foreach (var item in Model.Items)
+<div>
+    @Html.Raw(Model.QuestionBody);
+</div>
+<br />
+<br />
+<br />
+
+<div class="text-center">
+    <h1 class="display-4">Posted Answers:</h1>
+    <p>Click the "Accepted Answer" button above the answer you think is the accepted one</p>
+</div>
+<br />
+<br />
+<br />
+
+@foreach (var item in Model.Answers.Items)
 {
     <div>
-        <input type="button" value="Accepted Answer"/>
-        @Html.Raw(item.Body);
+        @Html.ActionLink("Accepted Answer","Question","Home",new{id=item.QuestionId, body=item.Body},new { @class = "btn btn-primary", @style = "color:white" })
+        @Html.Raw(item.Body)
     </div>
     <br />
     <br />

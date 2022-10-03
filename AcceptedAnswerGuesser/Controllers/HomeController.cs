@@ -25,7 +25,14 @@ namespace AcceptedAnswerGuesser.Controllers
         {
             var apiService = new ApiService();
             var answers = await apiService.GetAnswersAsync(id);
-            return View(answers);
+
+            GuesserModel guesser = new GuesserModel()
+            {
+                QuestionBody = body,
+                Answers = answers
+            };
+
+            return View(guesser);
         }
 
         public IActionResult Privacy()

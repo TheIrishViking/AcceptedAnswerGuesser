@@ -12,6 +12,6 @@
 @foreach(var item in Model.Items)
 {
     <div>
-        @Html.ActionLink(item.Title,"Question","Home",new{id=item.QuestionId, body=item.Body},null);
+        @Html.ActionLink(item.Title,"Question","Home",new{id=item.QuestionId, body=item.Body},null)
     </div>
 }
