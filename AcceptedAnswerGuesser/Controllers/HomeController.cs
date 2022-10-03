@@ -1,4 +1,5 @@
 ﻿using AcceptedAnswerGuesser.Models;
+using AcceptedAnswerGuesser.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,6 +16,8 @@ namespace AcceptedAnswerGuesser.Controllers
 
         public IActionResult Index()
         {
+            var apiService = new ApiService();
+            _ = apiService.GetQuestionsAsync();
             return View();
         }
 
