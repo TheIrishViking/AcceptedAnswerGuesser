@@ -5,46 +5,10 @@ namespace AcceptedAnswerGuesser.Models
     public class QuestionModel
     {
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-        public class Answer
-        {
-            [JsonProperty("owner")]
-            public Owner Owner { get; set; }
-
-            [JsonProperty("is_accepted")]
-            public bool IsAccepted { get; set; }
-
-            [JsonProperty("score")]
-            public int Score { get; set; }
-
-            [JsonProperty("last_activity_date")]
-            public int LastActivityDate { get; set; }
-
-            [JsonProperty("creation_date")]
-            public int CreationDate { get; set; }
-
-            [JsonProperty("answer_id")]
-            public int AnswerId { get; set; }
-
-            [JsonProperty("question_id")]
-            public int QuestionId { get; set; }
-
-            [JsonProperty("content_license")]
-            public string ContentLicense { get; set; }
-
-            [JsonProperty("body")]
-            public string Body { get; set; }
-
-            [JsonProperty("last_edit_date")]
-            public int? LastEditDate { get; set; }
-        }
-
-        public class Question
+        public class Item
         {
             [JsonProperty("tags")]
             public List<string> Tags { get; set; }
-
-            [JsonProperty("answers")]
-            public List<Answer> Answers { get; set; }
 
             [JsonProperty("owner")]
             public Owner Owner { get; set; }
@@ -76,6 +40,9 @@ namespace AcceptedAnswerGuesser.Models
             [JsonProperty("question_id")]
             public int QuestionId { get; set; }
 
+            [JsonProperty("content_license")]
+            public string ContentLicense { get; set; }
+
             [JsonProperty("link")]
             public string Link { get; set; }
 
@@ -84,12 +51,6 @@ namespace AcceptedAnswerGuesser.Models
 
             [JsonProperty("body")]
             public string Body { get; set; }
-
-            [JsonProperty("closed_date")]
-            public int? ClosedDate { get; set; }
-
-            [JsonProperty("closed_reason")]
-            public string ClosedReason { get; set; }
         }
 
         public class Owner
@@ -119,10 +80,10 @@ namespace AcceptedAnswerGuesser.Models
             public string Link { get; set; }
         }
 
-        public class QuestionList
+        public class Questions
         {
             [JsonProperty("items")]
-            public List<Question> Questions { get; set; }
+            public List<Item> Items { get; set; }
 
             [JsonProperty("has_more")]
             public bool HasMore { get; set; }
@@ -133,6 +94,7 @@ namespace AcceptedAnswerGuesser.Models
             [JsonProperty("quota_remaining")]
             public int QuotaRemaining { get; set; }
         }
+
 
 
     }
