@@ -14,11 +14,11 @@ namespace AcceptedAnswerGuesser.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             var apiService = new ApiService();
-            _ = apiService.GetAnswersAsync(70191055);
-            return View();
+            var questions = await apiService.GetQuestionsAsync();
+            return View(questions);
         }
 
         public IActionResult Privacy()
