@@ -6,12 +6,12 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Select the title of a recent question posed on StackOverflow for which you would like to guess the accepted answer: </p>
 </div>
 
 @foreach(var item in Model.Items)
 {
     <div>
-        @Html.DisplayFor(modelItem => item.Title);
+        @Html.ActionLink(item.Title,"Question","Home",new{id=item.QuestionId, body=item.Body},null);
     </div>
 }
