@@ -42,7 +42,7 @@ namespace AcceptedAnswerGuesser.Services
 
         string answersApiUrl = "https://api.stackexchange.com/2.3/questions/" + "{questionID}" + "/answers?order=desc&sort=creation&site=stackoverflow&filter=!nKzQURF6Y5";
 
-        public async Task GetAnswersAsync(int questionID)
+        public async Task<AnswerModel.Answers?> GetAnswersAsync(int questionID)
         {
             //insert question ID into the answersApiUrl string
             answersApiUrl = answersApiUrl.Replace("{questionID}", questionID.ToString());
@@ -58,10 +58,12 @@ namespace AcceptedAnswerGuesser.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var data = await response.Content.ReadAsStringAsync();
-                    var answers = JsonConvert.DeserializeObject<QuestionModel.Questions>(data);
+                    var answers = JsonConvert.DeserializeObject<AnswerModel.Answers>(data);
+
+                    return answers;
                 }
 
-
+                return null;
             }
         }
     }

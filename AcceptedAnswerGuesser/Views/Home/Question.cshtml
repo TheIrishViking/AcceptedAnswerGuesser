@@ -1,0 +1,19 @@
+﻿@model AcceptedAnswerGuesser.Models.AnswerModel.Answers
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <p>Which of the following answers is the accepted one? </p>
+</div>
+
+@foreach (var item in Model.Items)
+{
+    <div>
+        <input type="button" value="Accepted Answer"/>
+        @Html.Raw(item.Body);
+    </div>
+    <br />
+    <br />
+    <br />
+}
