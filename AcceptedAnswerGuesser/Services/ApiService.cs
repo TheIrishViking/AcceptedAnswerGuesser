@@ -14,7 +14,7 @@ namespace AcceptedAnswerGuesser.Services
 
         string questionsApiUrl = "https://api.stackexchange.com/2.3/search/advanced?page=1&pagesize=10&order=desc&sort=creation&accepted=True&answers=2&site=stackoverflow&filter=!nKzQUR3Egv";
 
-        public async Task GetQuestionsAsync()
+        public async Task<QuestionModel.Questions?> GetQuestionsAsync()
         {
             using (HttpClient client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All}))
             {                
@@ -28,9 +28,11 @@ namespace AcceptedAnswerGuesser.Services
                 {
                     var data = await response.Content.ReadAsStringAsync();
                     var questions = JsonConvert.DeserializeObject<QuestionModel.Questions>(data);
+
+                    return questions;
                 }
 
-
+                return null;
             }
         }
 
