@@ -17,7 +17,7 @@ namespace AcceptedAnswerGuesser.Controllers
         public IActionResult Index()
         {
             var apiService = new ApiService();
-            _ = apiService.GetQuestionsAsync();
+            _ = apiService.GetAnswersAsync(70191055);
             return View();
         }
 
