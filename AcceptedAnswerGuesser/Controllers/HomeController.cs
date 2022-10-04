@@ -35,6 +35,16 @@ namespace AcceptedAnswerGuesser.Controllers
             return View(guesser);
         }
 
+        public IActionResult Answer(bool isAccepted)
+        {
+            GuessModel guess = new GuessModel()
+            {
+                isAccepted = isAccepted
+            };
+
+            return View(guess);
+        }
+
         public IActionResult Privacy()
         {
             return View();

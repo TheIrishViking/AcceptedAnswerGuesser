@@ -29,7 +29,7 @@
 @foreach (var item in Model.Answers.Items)
 {
     <div>
-        @Html.ActionLink("Accepted Answer","Question","Home",new{id=item.QuestionId, body=item.Body},new { @class = "btn btn-primary", @style = "color:white" })
+        @Html.ActionLink("Accepted Answer","Answer","Home",new{isAccepted=item.IsAccepted},new { @class = "btn btn-primary", @style = "color:white" })
         @Html.Raw(item.Body)
     </div>
     <br />

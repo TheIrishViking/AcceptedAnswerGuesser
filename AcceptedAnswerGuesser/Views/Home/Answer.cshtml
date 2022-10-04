@@ -1,0 +1,25 @@
+﻿@model AcceptedAnswerGuesser.Models.GuessModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if(Model.isAccepted){
+        <h1 class="display-4">The answer you selected is the correct Accepted Answer!!!</h1>
+        <br />
+        <br />
+        <br />
+        <p>Click home to select a new question to play again.</p>
+    }
+    else
+    {
+        <h1 class="display-4">The answer you selected is not the accepted answer. Please Try Again.</h1>
+        <br />
+        <br />
+        <br />
+        <p>Either go back to select a new answer, or click home to select a new question to play again.</p>
+    }
+</div>
+<br />
+<br />
+<br />
