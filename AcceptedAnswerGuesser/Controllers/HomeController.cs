@@ -45,7 +45,7 @@ namespace AcceptedAnswerGuesser.Controllers
             return View(guess);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
