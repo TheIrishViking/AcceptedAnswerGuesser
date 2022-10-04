@@ -38,6 +38,7 @@ namespace AcceptedAnswerGuesser.Services
 
         //The Answers API URL is configured using the following parameters:
         //questionID will need to be provided in the string before calling the api
+        //sort=creation will sort the answers in the order they were created, which essentially randomizes which answer in the list is the accepted one
         //the filter was setup within the api documentation so that the answewr body was included in the response JSON
 
         string answersApiUrl = "https://api.stackexchange.com/2.3/questions/" + "{questionID}" + "/answers?order=desc&sort=creation&site=stackoverflow&filter=!nKzQURF6Y5";
